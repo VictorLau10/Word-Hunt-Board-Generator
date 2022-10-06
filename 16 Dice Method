@@ -1,0 +1,71 @@
+public class DiceMethod
+{
+    public static int num = 0;
+    public static char[] dice1 = {'R', 'I', 'F', 'O', 'B', 'X'};
+    public static char[] dice2 = {'I', 'F', 'E', 'H', 'E', 'Y'};
+    public static char[] dice3 = {'D', 'E', 'N', 'O', 'W', 'S'};
+    public static char[] dice4 = {'U', 'T', 'O', 'K', 'N', 'D'};
+    public static char[] dice5 = {'H', 'M', 'S', 'R', 'A', 'O'};
+    public static char[] dice6 = {'L', 'U', 'P', 'E', 'T', 'S'};
+    public static char[] dice7 = {'A', 'C', 'I', 'T', 'O', 'A'};
+    public static char[] dice8 = {'Y', 'L', 'G', 'K', 'U', 'E'};
+    public static char[] dice9 = {'Q', 'B', 'M', 'J', 'O', 'A'};
+    public static char[] dice10 = {'E', 'H', 'I', 'S', 'P', 'N'};
+    public static char[] dice11 = {'V', 'E', 'T', 'I', 'G', 'N'};
+    public static char[] dice12 = {'B', 'A', 'L', 'I', 'Y', 'T'};
+    public static char[] dice13 = {'E', 'Z', 'A', 'V', 'N', 'D'};
+    public static char[] dice14 = {'R', 'A', 'L', 'E', 'S', 'C'};
+    public static char[] dice15 = {'U', 'W', 'I', 'L', 'R', 'G'};
+    public static char[] dice16 = {'P', 'A', 'C', 'E', 'M', 'D'};
+
+    public static char[][] dice = {dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8, dice9,
+    dice10, dice11, dice12, dice13, dice14, dice15, dice16};
+    
+    /**
+     * 1   2   3   4
+     * 5   6   7   8
+     * 9   10  11  12
+     * 13  14  15  16
+     */ 
+
+    public static char[][] grid = new char[4][4]; 
+    
+    public static void main(String[] args)
+    {
+        fillGrid();
+        printGrid();
+    }
+    
+    public static void fillGrid()
+    {
+        // Rows
+        for (int i = 0; i < grid.length; i++)
+        {
+            // Columns
+            for (int j = 0; j < grid[i].length; j++)
+            {
+                // Take random letter from the array for the corresponding dice,
+                // set it to the current position in the grid
+                // System.out.println("(" + i + ", " + j + ") " + num);
+                int random = Randomizer.nextInt(0, 5);
+                grid[i][j] = dice[num][random];
+                
+                // Move on to the next dice
+                num++;
+            }
+        }
+    }
+    
+    public static void printGrid()
+    {
+        for (int i = 0; i < grid.length; i++) 
+        { 
+            for (int j = 0; j < grid[i].length; j++) 
+            {
+                System.out.print(grid[i][j] + " ");
+            }
+            // Add new line when we reach the end of the row
+            System.out.println(); 
+        }
+    }
+}
